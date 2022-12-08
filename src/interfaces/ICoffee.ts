@@ -1,7 +1,16 @@
+export enum TagType {
+  TRADICIONAL = 'TRADICIONAL',
+  GELADO = 'GELADO',
+  COMLEITE = 'COM LEITE',
+  ALCOOLICO = 'ALCOÓLICO',
+  ESPECIAL = 'ESPECIAL',
+}
+
 export interface ICoffee {
-  id: string
+  id: number
   name: string
-  // description: string
-  // price: number
+  description: string
+  price: number
   image: string
+  tags: TagType[]
 }

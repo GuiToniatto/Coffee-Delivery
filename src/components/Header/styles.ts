@@ -42,6 +42,23 @@ export const HeaderContainer = styled.header`
         opacity: 0.7;
         transition: opacity 0.2s;
       }
+
+      label {
+        margin-top: -3rem;
+        margin-right: -1.5rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: ${(props) => props.theme['yellow-dark']};
+        color: ${(props) => props.theme.white};
+
+        height: 1.5rem;
+        width: 1.5rem;
+
+        border-radius: 50%;
+      }
     }
   }
 `

@@ -1,5 +1,5 @@
 import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
-import { useState } from 'react'
+import { useContext } from 'react'
 
 import {
   CoffeesContainer,
@@ -10,12 +10,11 @@ import {
 } from './styles'
 
 import mainCoffeeImg from '../../assets/main-coffee.svg'
-import coffeeImg from '../../assets/americano.svg'
-import { ICoffee } from '../../interfaces/ICoffee'
 import { Card } from '../../components/Card'
+import { ShoppingCartContext } from '../../contexts/ShoppingCartContext'
 
 export function Home() {
-  const [coffes, setCoffees] = useState(Array<ICoffee>)
+  const { coffees } = useContext(ShoppingCartContext)
 
   return (
     <HomeContainer>
@@ -62,15 +61,19 @@ export function Home() {
       <CoffeesContainer>
         <h2>Nossos cafés</h2>
         <div className="cardArea">
-          {coffes.map(function (coffee) {
-            return <Card key={coffee.id} image={coffee.image} id="" />
+          {coffees.map(function (coffee) {
+            return (
+              <Card
+                key={coffee.id}
+                name={coffee.name}
+                image={coffee.image}
+                id={coffee.id}
+                description={coffee.description}
+                price={coffee.price}
+                tags={coffee.tags}
+              />
+            )
           })}
-          <Card image={coffeeImg} id="" />
-          <Card image={coffeeImg} id="" />
-          <Card image={coffeeImg} id="" />
-          <Card image={coffeeImg} id="" />
-          <Card image={coffeeImg} id="" />
-          <Card image={coffeeImg} id="" />
         </div>
       </CoffeesContainer>
     </HomeContainer>
